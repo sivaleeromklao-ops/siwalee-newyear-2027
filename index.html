@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ขอเชิญเข้าร่วมกิจกรรมปีใหม่ หมู่บ้านสีวลี</title>
+  <meta name="description" content="ลงทะเบียนเข้าร่วมกิจกรรมปีใหม่ หมู่บ้านสีวลี วันเสาร์ ที่ 12 ธันวาคม เวลา 16.00 - 21.00 น." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       Color palette (strict)
+       Emerald Green   #154230  - Hero / primary background
+       Deep Burgundy   #5D1E21  - Accent / card borders / secondary
+       Charcoal Black  #101111  - Primary text / footer
+       Antique Gold    #A6824A  - Highlights / icons / CTA
+       Soft Cream      #E6E2DA  - Page background / card surfaces
+       ============================================================ */
+    :root {
+      --emerald: #154230;
+      --burgundy: #5D1E21;
+      --charcoal: #101111;
+      --gold: #A6824A;
+      --cream: #E6E2DA;
+      --radius: 18px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Prompt', 'Kanit', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.65;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 18px;
+    }
+
+    /* ---------------- HERO ---------------- */
+    .hero {
+      position: relative;
+      background: var(--emerald);
+      color: var(--cream);
+      text-align: center;
+      padding: 56px 0 48px;
+      overflow: hidden;
+      border-bottom: 6px solid var(--gold);
+    }
+    .hero .sparkle-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: .5;
+    }
+    .hero .container { position: relative; z-index: 1; }
+
+    .hero .tag {
+      display: inline-block;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      border-radius: 999px;
+      padding: 2px 16px;
+      font-size: .85rem;
+      letter-spacing: .08em;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(1.7rem, 6.4vw, 2.9rem);
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--cream);
+    }
+
+    .hero .subheader {
+      margin: 0;
+      font-size: clamp(1.05rem, 4vw, 1.45rem);
+      font-weight: 400;
+      color: var(--gold);
+    }
+
+    .divider {
+      display: block;
+      margin: 24px auto 0;
+      width: min(340px, 80%);
+      height: auto;
+    }
+
+    /* ---------------- SECTIONS ---------------- */
+    section { padding: 44px 0; }
+
+    .section-title {
+      margin: 0 0 6px;
+      text-align: center;
+      font-size: clamp(1.35rem, 5vw, 1.8rem);
+      font-weight: 600;
+      color: var(--burgundy);
+    }
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 64px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 3px;
+      margin: 10px auto 0;
+    }
+
+    .intro {
+      text-align: center;
+      margin: 14px auto 24px;
+      max-width: 560px;
+      font-size: 1.05rem;
+    }
+
+    /* ---------------- FORM ---------------- */
+    .card {
+      background: var(--cream);
+      border: 2px solid var(--burgundy);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 22px rgba(16, 17, 17, .14), inset 0 0 0 4px rgba(255, 255, 255, .35);
+    }
+
+    form.card { padding: 26px 20px; }
+
+    .field { margin-bottom: 20px; }
+
+    .field > label,
+    .field > .label,
+    legend.label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 6px;
+      color: var(--charcoal);
+      padding: 0;
+    }
+    .req { color: var(--burgundy); margin-left: 2px; }
+
+    fieldset { border: 0; padding: 0; margin: 0 0 20px; min-width: 0; }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--charcoal);
+      background: rgba(255, 255, 255, .6);
+      border: 1.5px solid var(--burgundy);
+      border-radius: 12px;
+      padding: 11px 14px;
+      transition: border-color .15s, box-shadow .15s, background .15s;
+    }
+    textarea { min-height: 96px; resize: vertical; }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(166, 130, 74, .45);
+      background: rgba(255, 255, 255, .85);
+    }
+
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .row .sub { font-size: .92rem; font-weight: 500; margin-bottom: 4px; display: block; }
+
+    .hint { font-size: .85rem; margin-top: 6px; color: var(--burgundy); }
+
+    /* radio toggles */
+    .toggle-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .toggle { position: relative; }
+    .toggle input {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      opacity: 0; cursor: pointer; margin: 0;
+    }
+    .toggle span {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      text-align: center;
+      padding: 11px 10px;
+      border: 1.5px solid var(--burgundy);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, .6);
+      font-weight: 500;
+      transition: all .15s;
+    }
+    .toggle input:checked + span {
+      background: var(--burgundy);
+      color: var(--cream);
+      box-shadow: inset 0 0 0 2px var(--gold);
+    }
+    .toggle input:focus-visible + span { box-shadow: 0 0 0 3px rgba(166, 130, 74, .6); }
+    .toggle:hover span { border-color: var(--gold); }
+
+    /* conditional gift field */
+    #giftCountWrap {
+      display: none;
+      margin-top: 14px;
+      padding: 14px;
+      border: 1.5px dashed var(--gold);
+      border-radius: 12px;
+      animation: reveal .25s ease;
+    }
+    #giftCountWrap.show { display: block; }
+    @keyframes reveal { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+
+    /* buttons */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%;
+      font-family: inherit; font-size: 1.1rem; font-weight: 600;
+      color: var(--charcoal);
+      background: var(--gold);
+      border: 2px solid var(--gold);
+      border-radius: 999px;
+      padding: 13px 24px;
+      cursor: pointer;
+      transition: background .15s, color .15s, transform .1s, border-color .15s;
+    }
+    .btn:hover:not(:disabled) { background: var(--burgundy); border-color: var(--burgundy); color: var(--cream); }
+    .btn:active:not(:disabled) { transform: scale(.98); }
+    .btn:focus-visible { outline: 3px solid var(--emerald); outline-offset: 3px; }
+    .btn:disabled { opacity: .55; cursor: not-allowed; }
+
+    /* status message */
+    .form-status {
+      display: none;
+      margin-top: 16px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1.5px solid var(--burgundy);
+      font-weight: 500;
+      text-align: center;
+    }
+    .form-status.show { display: block; }
+    .form-status.info { background: rgba(166, 130, 74, .22); }
+    .form-status.success { background: var(--emerald); color: var(--cream); border-color: var(--gold); }
+    .form-status.error { background: var(--burgundy); color: var(--cream); }
+    .form-status pre {
+      text-align: left; white-space: pre-wrap; word-break: break-word;
+      font-size: .8rem; margin: 10px 0 0; padding: 10px;
+      background: rgba(16, 17, 17, .35); border-radius: 8px; color: var(--cream);
+      font-family: ui-monospace, Consolas, monospace; font-weight: 400;
+    }
+
+    /* ---------------- STATUS ---------------- */
+    .status-section {
+      background: var(--emerald);
+      border-top: 6px solid var(--gold);
+    }
+    .status-section .section-title { color: var(--cream); }
+    .status-section .updated {
+      text-align: center; color: var(--gold); margin: 12px 0 28px; font-size: .95rem;
+    }
+
+    .status-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .status-card {
+      background: var(--cream);
+      border: 2px solid var(--gold);
+      border-radius: var(--radius);
+      padding: 18px 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 6px 16px rgba(16, 17, 17, .3), inset 0 0 0 4px rgba(93, 30, 33, .08);
+      position: relative;
+      overflow: hidden;
+    }
+    .status-card::before {
+      content: "";
+      position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+      background: var(--burgundy);
+    }
+    .status-card .pic {
+      flex: 0 0 82px; width: 82px; height: 82px;
+      border-radius: 50%;
+      background: rgba(166, 130, 74, .2);
+      border: 2px solid var(--burgundy);
+      display: grid; place-items: center;
+      margin-left: 6px;
+    }
+    .status-card .pic svg { width: 62px; height: 62px; }
+    .status-card h3 { margin: 0 0 2px; font-size: 1.15rem; color: var(--burgundy); font-weight: 600; }
+    .status-card .value { margin: 0; font-size: 1.05rem; font-weight: 500; color: var(--charcoal); }
+
+    /* ---------------- FOOTER ---------------- */
+    footer {
+      background: var(--charcoal);
+      color: var(--cream);
+      text-align: center;
+      padding: 28px 0;
+      border-top: 4px solid var(--gold);
+    }
+    footer p { margin: 4px 0; }
+    footer .gold { color: var(--gold); font-weight: 500; }
+    footer small { opacity: .75; }
+
+    /* ---------------- LARGER SCREENS ---------------- */
+    @media (min-width: 560px) {
+      form.card { padding: 34px 36px; }
+      .status-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 820px) {
+      .status-grid { grid-template-columns: repeat(3, 1fr); }
+      .status-card { flex-direction: column; text-align: center; padding: 22px 14px 20px 20px; }
+      .status-card .pic { margin-left: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ====================== A. HERO ====================== -->
+  <header class="hero">
+    <!-- decorative sparkles -->
+    <svg class="sparkle-bg" viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="#A6824A">
+        <path d="M60 50 l4 12 12 4 -12 4 -4 12 -4 -12 -12 -4 12 -4z" />
+        <path d="M720 70 l5 14 14 5 -14 5 -5 14 -5 -14 -14 -5 14 -5z" />
+        <path d="M150 230 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z" />
+        <path d="M650 220 l4 11 11 4 -11 4 -4 11 -4 -11 -11 -4 11 -4z" />
+        <path d="M400 20 l3 8 8 3 -8 3 -3 8 -3 -8 -8 -3 8 -3z" />
+        <circle cx="260" cy="60" r="3" />
+        <circle cx="560" cy="40" r="2.5" />
+        <circle cx="90" cy="150" r="2.5" />
+        <circle cx="740" cy="170" r="3" />
+        <circle cx="330" cy="260" r="2" />
+        <circle cx="520" cy="270" r="2.5" />
+      </g>
+    </svg>
+
+    <div class="container">
+      <span class="tag">HAPPY NEW YEAR</span>
+      <h1>ขอเชิญเข้าร่วมกิจกรรมปีใหม่ หมู่บ้านสีวลี</h1>
+      <p class="subheader">วันเสาร์ ที่ 12 ธันวาคม เวลา 16.00 - 21.00 น.</p>
+
+      <!-- festive gold divider -->
+      <svg class="divider" viewBox="0 0 340 40" role="img" aria-label="เส้นตกแต่งปีใหม่">
+        <g stroke="#A6824A" stroke-width="2" stroke-linecap="round" fill="none">
+          <line x1="8" y1="20" x2="120" y2="20" />
+          <line x1="220" y1="20" x2="332" y2="20" />
+          <line x1="40" y1="26" x2="110" y2="26" opacity=".6" />
+          <line x1="230" y1="26" x2="300" y2="26" opacity=".6" />
+        </g>
+        <!-- center star -->
+        <path fill="#A6824A" d="M170 4 l5.5 12.5 13.5 1.3 -10.2 9 3.1 13.2 -11.9 -7 -11.9 7 3.1 -13.2 -10.2 -9 13.5 -1.3z" />
+        <!-- side diamonds -->
+        <path fill="#A6824A" d="M134 20 l6 -6 6 6 -6 6z" />
+        <path fill="#A6824A" d="M194 20 l6 -6 6 6 -6 6z" />
+        <circle cx="8" cy="20" r="3" fill="#A6824A" />
+        <circle cx="332" cy="20" r="3" fill="#A6824A" />
+      </svg>
+    </div>
+  </header>
+
+  <main>
+    <!-- ====================== B. REGISTRATION ====================== -->
+    <section id="register">
+      <div class="container">
+        <h2 class="section-title">ลงทะเบียนเข้าร่วมงาน</h2>
+        <p class="intro">หากใครยังไม่ได้ลงทะเบียนในไลน์ สามารถลงได้ที่ form ด้านล่าง</p>
+
+        <form id="regForm" class="card" novalidate>
+
+          <!-- 1. บ้านเลขที่ -->
+          <div class="field">
+            <label for="houseNumber">บ้านเลขที่ <span class="req">*</span></label>
+            <input type="text" id="houseNumber" name="houseNumber" required placeholder="เช่น 456/123" />
+          </div>
+
+          <!-- 2. จำนวนผู้เข้าร่วม -->
+          <fieldset>
+            <legend class="label">จำนวนผู้เข้าร่วม <span class="req">*</span></legend>
+            <div class="row">
+              <div>
+                <label class="sub" for="adults">ผู้ใหญ่ (คน)</label>
+                <input type="number" id="adults" name="adults" min="0" step="1" value="1" inputmode="numeric" required />
+              </div>
+              <div>
+                <label class="sub" for="children">เด็ก (คน)</label>
+                <input type="number" id="children" name="children" min="0" step="1" value="0" inputmode="numeric" required />
+              </div>
+            </div>
+            <div class="hint" id="attendeeHint">รวมผู้เข้าร่วมอย่างน้อย 1 คน</div>
+          </fieldset>
+
+          <!-- 3. กิจกรรมแลกของขวัญ -->
+          <fieldset>
+            <legend class="label">กิจกรรมแลกของขวัญ <span class="req">*</span></legend>
+            <div class="toggle-group">
+              <label class="toggle">
+                <input type="radio" name="giftExchange" value="เข้าร่วม" required />
+                <span>🎁 เข้าร่วม</span>
+              </label>
+              <label class="toggle">
+                <input type="radio" name="giftExchange" value="ไม่เข้าร่วม" required />
+                <span>ไม่เข้าร่วม</span>
+              </label>
+            </div>
+
+            <!-- Conditional field -->
+            <div id="giftCountWrap">
+              <label for="giftCount" style="font-weight:500;display:block;margin-bottom:6px;">
+                จำนวนของขวัญที่นำมาแลก (ชิ้น) <span class="req">*</span>
+              </label>
+              <input type="number" id="giftCount" name="giftCount" min="1" step="1" value="0" inputmode="numeric" disabled />
+            </div>
+          </fieldset>
+
+          <!-- 4. หมายเหตุ -->
+          <div class="field">
+            <label for="notes">สิ่งที่นำมาร่วมงาน / หมายเหตุ</label>
+            <textarea id="notes" name="notes" placeholder="เช่น นำข้าวผัดมา 1 ถาด / แพ้อาหารทะเล (ไม่บังคับ)"></textarea>
+          </div>
+
+          <button type="submit" class="btn" id="submitBtn">ส่งข้อมูลลงทะเบียน</button>
+
+          <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ====================== C. LIVE STATUS ====================== -->
+    <section class="status-section" id="status">
+      <div class="container">
+        <h2 class="section-title">อัปเดตยอดการสนับสนุน ทั้งเงินและสิ่งของ</h2>
+        <!-- แก้ไขวันที่อัปเดตล่าสุดตรงนี้ -->
+        <p class="updated">อัปเดตล่าสุด: 24 พฤศจิกายน 2569</p>
+
+        <div class="status-grid">
+
+          <!-- 1. เงินสนับสนุน -->
+          <article class="status-card">
+            <div class="pic">
+              <svg viewBox="0 0 100 100" role="img" aria-label="กระปุกออมสินหมู">
+                <!-- coin -->
+                <circle cx="50" cy="14" r="11" fill="#A6824A" stroke="#5D1E21" stroke-width="3" />
+                <text x="50" y="19" text-anchor="middle" font-size="14" font-weight="700" fill="#5D1E21" font-family="Prompt, sans-serif">฿</text>
+                <!-- legs -->
+                <rect x="28" y="72" width="12" height="16" rx="5" fill="#A6824A" stroke="#5D1E21" stroke-width="3" />
+                <rect x="60" y="72" width="12" height="16" rx="5" fill="#A6824A" stroke="#5D1E21" stroke-width="3" />
+                <!-- tail -->
+                <path d="M16 52 q-10 -4 -6 -12 q4 -6 8 0" fill="none" stroke="#5D1E21" stroke-width="3" stroke-linecap="round" />
+                <!-- body -->
+                <ellipse cx="50" cy="55" rx="34" ry="26" fill="#A6824A" stroke="#5D1E21" stroke-width="3" />
+                <!-- ear -->
+                <path d="M62 32 l8 -12 l8 16z" fill="#A6824A" stroke="#5D1E21" stroke-width="3" stroke-linejoin="round" />
+                <!-- coin slot -->
+                <rect x="38" y="33" width="20" height="4" rx="2" fill="#5D1E21" />
+                <!-- snout -->
+                <ellipse cx="82" cy="56" rx="9" ry="10" fill="#E6E2DA" stroke="#5D1E21" stroke-width="3" />
+                <circle cx="80" cy="56" r="1.8" fill="#5D1E21" />
+                <circle cx="85" cy="56" r="1.8" fill="#5D1E21" />
+                <!-- eye + cheek -->
+                <circle cx="68" cy="48" r="3.2" fill="#101111" />
+                <circle cx="62" cy="60" r="4" fill="#5D1E21" opacity=".35" />
+                <!-- smile -->
+                <path d="M70 66 q5 4 10 0" fill="none" stroke="#5D1E21" stroke-width="2.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <h3>เงินสนับสนุน</h3>
+              <!-- แก้ไขตัวเลขสถานะตรงนี้ -->
+              <p class="value">ยอดปัจจุบัน: 39,500 บาท</p>
+            </div>
+          </article>
+
+          <!-- 2. อาหารที่มาร่วม -->
+          <article class="status-card">
+            <div class="pic">
+              <svg viewBox="0 0 100 100" role="img" aria-label="โดมอาหาร">
+                <!-- steam -->
+                <path d="M36 22 q-5 -6 0 -11" fill="none" stroke="#A6824A" stroke-width="3" stroke-linecap="round" />
+                <path d="M50 20 q-5 -6 0 -11" fill="none" stroke="#A6824A" stroke-width="3" stroke-linecap="round" />
+                <path d="M64 22 q-5 -6 0 -11" fill="none" stroke="#A6824A" stroke-width="3" stroke-linecap="round" />
+                <!-- knob -->
+                <circle cx="50" cy="32" r="6" fill="#A6824A" stroke="#5D1E21" stroke-width="3" />
+                <!-- dome -->
+                <path d="M12 74 Q12 38 50 38 Q88 38 88 74 Z" fill="#E6E2DA" stroke="#5D1E21" stroke-width="3" stroke-linejoin="round" />
+                <path d="M24 66 Q26 50 42 46" fill="none" stroke="#A6824A" stroke-width="3.5" stroke-linecap="round" />
+                <!-- face -->
+                <circle cx="40" cy="60" r="2.8" fill="#101111" />
+                <circle cx="60" cy="60" r="2.8" fill="#101111" />
+                <path d="M44 66 q6 5 12 0" fill="none" stroke="#5D1E21" stroke-width="2.5" stroke-linecap="round" />
+                <!-- plate -->
+                <rect x="6" y="74" width="88" height="9" rx="4.5" fill="#A6824A" stroke="#5D1E21" stroke-width="3" />
+                <rect x="30" y="83" width="40" height="6" rx="3" fill="#5D1E21" />
+              </svg>
+            </div>
+            <div style="width: 100%;">
+              <h3>อาหารที่มาร่วม</h3>
+              <!-- แก้ไขตัวเลขสถานะตรงนี้ -->
+              <p class="value">ลงทะเบียนแล้ว: 6 รายการ</p>
+
+              <!-- รายการเมนูอาหาร (เพิ่ม/แก้ไขเมนูตรงนี้) -->
+              <ul style="
+                margin: 10px 0 0 0;
+                padding: 10px 14px 10px 26px;
+                background: rgba(166, 130, 74, 0.14);
+                border-left: 3px solid #A6824A;
+                border-radius: 6px;
+                text-align: left;
+                font-size: 0.9rem;
+                line-height: 1.65;
+                color: #101111;
+                list-style-type: disc;
+              ">
+                <li>มักโรนี ซอสมะเขือเทศกุ้ง + ขนมลืมกลืน</li>
+                <li>ข้าวนุ่มซูชิ</li>
+                <li>พุดดิ้งมะพร้าวอ่อน 80 ถ้วย</li>
+                <li>คอนเฟลกเคลือบคาราเมลช็อกโกแลต / ชาเขียว / น้ำผึ้ง 80 ถุง</li>
+                <li>ไอศกรีมกะทิวนิลา 1 ถัง</li>
+                <li>ขนมจีนน้ำยากะทิ (ขนมจีน 10 กิโล)</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- 3. โต๊ะ -->
+          <article class="status-card">
+            <div class="pic">
+              <svg viewBox="0 0 100 100" role="img" aria-label="โต๊ะ">
+                <!-- legs -->
+                <rect x="20" y="52" width="9" height="36" rx="3" fill="#A6824A" stroke="#5D1E21" stroke-width="3" />
+                <rect x="71" y="52" width="9" height="36" rx="3" fill="#A6824A" stroke="#5D1E21" stroke-width="3" />
+                <!-- tabletop -->
+                <rect x="8" y="36" width="84" height="20" rx="8" fill="#A6824A" stroke="#5D1E21" stroke-width="3" />
+                <path d="M16 42 h22" stroke="#E6E2DA" stroke-width="3" stroke-linecap="round" opacity=".8" />
+                <!-- face -->
+                <circle cx="40" cy="46" r="2.5" fill="#101111" />
+                <circle cx="60" cy="46" r="2.5" fill="#101111" />
+                <path d="M45 50 q5 4 10 0" fill="none" stroke="#5D1E21" stroke-width="2.3" stroke-linecap="round" />
+                <!-- cup on table -->
+                <path d="M44 16 h14 l-2 16 h-10z" fill="#E6E2DA" stroke="#5D1E21" stroke-width="3" stroke-linejoin="round" />
+                <path d="M58 20 q8 0 6 8 q-1 3 -6 3" fill="none" stroke="#5D1E21" stroke-width="3" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <h3>โต๊ะ</h3>
+              <!-- แก้ไขตัวเลขสถานะตรงนี้ -->
+              <p class="value">พร้อมใช้งาน: 4 </p>
+            </div>
+          </article>
+
+          <!-- 4. พัดลม -->
+          <article class="status-card">
+            <div class="pic">
+              <svg viewBox="0 0 100 100" role="img" aria-label="พัดลม">
+                <!-- stand -->
+                <rect x="45" y="68" width="10" height="18" fill="#A6824A" stroke="#5D1E21" stroke-width="3" />
+                <rect x="26" y="84" width="48" height="9" rx="4.5" fill="#5D1E21" />
+                <!-- guard -->
+                <circle cx="50" cy="40" r="32" fill="#E6E2DA" stroke="#5D1E21" stroke-width="3" />
+                <circle cx="50" cy="40" r="22" fill="none" stroke="#A6824A" stroke-width="1.8" />
+                <!-- blades -->
+                <g fill="#A6824A" stroke="#5D1E21" stroke-width="2.5" stroke-linejoin="round">
+                  <path d="M50 40 C40 28 42 14 50 13 C58 14 58 30 50 40z" />
+                  <path d="M50 40 C62 36 74 44 72 52 C68 58 56 52 50 40z" />
+                  <path d="M50 40 C44 52 30 56 27 49 C26 42 38 34 50 40z" />
+                </g>
+                <!-- hub + face -->
+                <circle cx="50" cy="40" r="7" fill="#5D1E21" />
+                <circle cx="47.5" cy="39" r="1.4" fill="#E6E2DA" />
+                <circle cx="52.5" cy="39" r="1.4" fill="#E6E2DA" />
+                <path d="M47.5 43 q2.5 2 5 0" fill="none" stroke="#E6E2DA" stroke-width="1.4" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <h3>พัดลม</h3>
+              <!-- แก้ไขตัวเลขสถานะตรงนี้ -->
+              <p class="value">พร้อมใช้งาน: 2 </p>
+            </div>
+          </article>
+
+          <!-- 5. เก้าอี้ -->
+          <article class="status-card">
+            <div class="pic">
+              <svg viewBox="0 0 100 100" role="img" aria-label="เก้าอี้">
+                <!-- back legs -->
+                <rect x="24" y="60" width="8" height="30" rx="3" fill="#A6824A" stroke="#5D1E21" stroke-width="3" />
+                <rect x="68" y="60" width="8" height="30" rx="3" fill="#A6824A" stroke="#5D1E21" stroke-width="3" />
+                <!-- backrest -->
+                <rect x="24" y="8" width="52" height="38" rx="10" fill="#A6824A" stroke="#5D1E21" stroke-width="3" />
+                <path d="M32 16 h14" stroke="#E6E2DA" stroke-width="3" stroke-linecap="round" opacity=".8" />
+                <!-- face -->
+                <circle cx="42" cy="28" r="2.6" fill="#101111" />
+                <circle cx="58" cy="28" r="2.6" fill="#101111" />
+                <path d="M45 35 q5 4 10 0" fill="none" stroke="#5D1E21" stroke-width="2.3" stroke-linecap="round" />
+                <!-- seat -->
+                <rect x="16" y="48" width="68" height="16" rx="8" fill="#5D1E21" stroke="#5D1E21" stroke-width="3" />
+                <rect x="20" y="50" width="60" height="5" rx="2.5" fill="#A6824A" opacity=".55" />
+              </svg>
+            </div>
+            <div>
+              <h3>เก้าอี้</h3>
+              <!-- แก้ไขตัวเลขสถานะตรงนี้ -->
+              <p class="value">พร้อมใช้งาน: 4 </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer>
+    <div class="container">
+      <p class="gold">✦ สวัสดีปีใหม่ ✦</p>
+      <p>กิจกรรมปีใหม่ หมู่บ้านสีวลี</p>
+      <p><small>วันเสาร์ ที่ 12 ธันวาคม เวลา 16.00 - 21.00 น.</small></p>
+    </div>
+  </footer>
+
+  <script>
+    /* ==========================================================
+       การตั้งค่า / CONFIGURATION
+       วาง URL ของ Google Apps Script Web App ลงในเครื่องหมายคำพูดด้านล่าง
+       ตัวอย่าง: "https://script.google.com/macros/s/XXXXXXXX/exec"
+       ========================================================== */
+    const SUBMIT_ENDPOINT = "https://script.google.com/macros/s/AKfycbw2AvKJOxujQ-1I7WFujLhY4G3DFuBBPeEg1bz-75X9Ss9ynQE96shAYpywKaaLw8GR9A/exec";
+
+    (function () {
+      const form = document.getElementById('regForm');
+      const submitBtn = document.getElementById('submitBtn');
+      const statusBox = document.getElementById('formStatus');
+      const adultsEl = document.getElementById('adults');
+      const childrenEl = document.getElementById('children');
+      const attendeeHint = document.getElementById('attendeeHint');
+      const giftWrap = document.getElementById('giftCountWrap');
+      const giftCountEl = document.getElementById('giftCount');
+      const giftRadios = form.querySelectorAll('input[name="giftExchange"]');
+
+      /* ---------- helpers ---------- */
+      function showStatus(type, message, extraPre) {
+        statusBox.className = 'form-status show ' + type;
+        statusBox.textContent = message;
+        if (extraPre) {
+          const pre = document.createElement('pre');
+          pre.textContent = extraPre;
+          statusBox.appendChild(pre);
+        }
+      }
+      function clearStatus() {
+        statusBox.className = 'form-status';
+        statusBox.textContent = '';
+      }
+      function toInt(v) {
+        const n = parseInt(v, 10);
+        return Number.isFinite(n) ? n : 0;
+      }
+
+      /* ---------- conditional gift count ---------- */
+      function updateGiftField() {
+        const selected = form.querySelector('input[name="giftExchange"]:checked');
+        if (selected && selected.value === 'เข้าร่วม') {
+          giftWrap.classList.add('show');
+          giftCountEl.disabled = false;
+          giftCountEl.required = true;
+          if (toInt(giftCountEl.value) < 1) giftCountEl.value = 1;
+        } else {
+          giftWrap.classList.remove('show');
+          giftCountEl.required = false;
+          giftCountEl.disabled = true;
+          giftCountEl.value = 0;
+        }
+      }
+      giftRadios.forEach(r => r.addEventListener('change', updateGiftField));
+
+      /* ---------- attendee validation ---------- */
+      function attendeesValid() {
+        return toInt(adultsEl.value) + toInt(childrenEl.value) >= 1;
+      }
+      function updateAttendeeHint() {
+        const ok = attendeesValid();
+        attendeeHint.textContent = ok
+          ? 'รวมผู้เข้าร่วม ' + (toInt(adultsEl.value) + toInt(childrenEl.value)) + ' คน'
+          : 'กรุณาระบุผู้เข้าร่วมอย่างน้อย 1 คน';
+      }
+      adultsEl.addEventListener('input', updateAttendeeHint);
+      childrenEl.addEventListener('input', updateAttendeeHint);
+
+      /* ---------- reset ---------- */
+      function resetAll() {
+        form.reset();
+        adultsEl.value = 1;
+        childrenEl.value = 0;
+        updateGiftField();
+        updateAttendeeHint();
+      }
+
+      /* ---------- submit ---------- */
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        clearStatus();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          showStatus('error', 'กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน');
+          return;
+        }
+
+        if (!attendeesValid()) {
+          showStatus('error', 'กรุณาระบุจำนวนผู้เข้าร่วมอย่างน้อย 1 คน (ผู้ใหญ่ + เด็ก)');
+          adultsEl.focus();
+          return;
+        }
+
+        const giftExchange = form.querySelector('input[name="giftExchange"]:checked').value;
+        const payload = {
+          houseNumber: form.houseNumber.value.trim(),
+          adults: toInt(adultsEl.value),
+          children: toInt(childrenEl.value),
+          giftExchange: giftExchange,
+          giftCount: giftExchange === 'เข้าร่วม' ? Math.max(1, toInt(giftCountEl.value)) : 0,
+          notes: form.notes.value.trim()
+        };
+
+        submitBtn.disabled = true;
+
+        if (!SUBMIT_ENDPOINT) {
+          showStatus(
+            'info',
+            'โหมดทดสอบ: ยังไม่ได้ตั้งค่า SUBMIT_ENDPOINT จึงยังไม่ได้ส่งข้อมูลจริง — ข้อมูลที่จะถูกส่งมีดังนี้',
+            JSON.stringify(payload, null, 2)
+          );
+          submitBtn.disabled = false;
+          resetAll();
+          return;
+        }
+
+        showStatus('info', 'กำลังส่งข้อมูล...');
+
+        try {
+          await fetch(SUBMIT_ENDPOINT, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          });
+          showStatus('success', 'ลงทะเบียนเรียบร้อยแล้ว ขอบคุณครับ/ค่ะ');
+          resetAll();
+        } catch (err) {
+          console.error(err);
+          showStatus('error', 'ขออภัย ส่งข้อมูลไม่สำเร็จ กรุณาตรวจสอบอินเทอร์เน็ตแล้วลองใหม่อีกครั้ง หรือแจ้งผ่านไลน์');
+        } finally {
+          submitBtn.disabled = false;
+        }
+      });
+
+      updateGiftField();
+      updateAttendeeHint();
+    })();
+  </script>
+</body>
+</html>
